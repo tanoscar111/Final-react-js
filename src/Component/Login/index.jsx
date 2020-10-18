@@ -1,38 +1,55 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import './login.css'
 import Loginform from '../Login/Loginfom'
 import Register from '../Login/Register'
 import { Button } from 'react-bootstrap';
+import { getListUser, createUser, checkuser } from '../../Redux/Actions'
+import { connect } from 'react-redux';
 
-
-function Login() {
+function Login(props) {
     const [showLogin, setShowLogin] = useState('')
-    
-    console.log (showLogin)
+    const { getListUser, createUser, usertListData, checkuser } = props
 
+    useEffect(() => {
+        getListUser();
+    }, [])
+    
     function toggleLogin(type) {
         console.log(type)
         setShowLogin(type)
-    }
-    // function submitForm(type, values) {
-    //     console.log(type)
-    // }
+       
 
+    }
+    function submitLogin(values) {
+        checkuser({
+            userName:values.userName,
+            passWord: values.passWord,
+        })
+    }
+
+    function submitRegister(values) {
+        createUser({
+            userName: values.userName,
+            passWord: values.passWord,
+
+        })
+    }
     function renderItem() {
         if (showLogin === "register") {
-                return (
-                   <Register/>
-                    
-                )
-           
+            return (
+                <Register submitRegister={submitRegister} />
+
+            )
+
         } else {
             return (
-                <Loginform />
+                <Loginform  submitLogin={submitLogin}/>
             )
 
         }
     }
+    
 
 
     return (
@@ -54,5 +71,20 @@ function Login() {
         </div>
     );
 }
+const mapStateToProps = (state) => {// lấy state từ store của reducers
+    console.log("TCL: mapStateToProps -> state", state);
+    const { usertListData } = state;// lấy array của productsList tring store
+    return {
+        usertListData,
+    };
 
-export default Login;
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getListUser: (param) => dispatch(getListUser(param)),
+        createUser: (param) => dispatch(createUser(param)),
+        checkuser: (param) => dispatch(checkuser(param))
+
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

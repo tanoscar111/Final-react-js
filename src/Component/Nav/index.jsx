@@ -6,9 +6,12 @@ import { FaBars } from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import logo from '../../image/logo.jpg'
 
+
 import history from '../../history'
-function Nav() {
-  const [sidebar, setSidebar] = useState('');
+
+function Nav(props) {
+  const [isShowSidebar, setIsShowSidebar] = useState(false);
+  console.log("Nav -> isShowSidebar", isShowSidebar)
 
   const linkData = [
     {
@@ -28,46 +31,95 @@ function Nav() {
       path: '/login',
     }
   ]
+  const getvalues = localStorage.getItem("myValueInLocalStorage");
+  const setValue = JSON.parse(getvalues);
+  console.log("TCL: Nav -> setValue", setValue)
 
-  const showSidebar = (type) => setSidebar(type);
+
 
   function renderLinkData() {
     return linkData.map((itemLink, indexLink) => {
       return (
         <NavItem key={`itemlink ${indexLink}`} name={itemLink.name} path={itemLink.path}
-          sidebar={sidebar} />
+          sidebar={isShowSidebar}
+        />
       )
-    })
-
-
+    });
   }
 
+  function renderSidebarItem() {
+    return linkData.map((sidebarItem, sidebarItemIndex) => {
+      return (
+        <div
+          key={`sidebar-${sidebarItemIndex}`}
+          className="sidebar-item"
+          onClick={() => history.push(sidebarItem.path)}
+        >
+          {sidebarItem.name}
+        </div>
+      )
+    });
+  }
+
+  function rederSiderbarNav() {
+    return linkData.map((sidebarNav, sidebarNavIndex) => {
+      return (
+        <div
+          key={`sidebarNav-${sidebarNavIndex}`}
+          className=""
+        >
+          {sidebarNav.name}
+        </div>
+      )
+    });
+  }
+  // function RegisterLoginSubmitForm(values){
+  //     setDataFormRegister({
+  //       values:values
+  //     })
+  // }
   return (
     <>
-
+      <div className={isShowSidebar ? 'sidebar-container active' : 'sidebar-container'}>
+        <div className="sidebar-menu">
+          {rederSiderbarNav()}
+        </div>
+        <AiIcons.AiOutlineClose
+          className="color close-sidebar-icon"
+          onClick={() => setIsShowSidebar(false)}
+        />
+      </div>
       <div className="Home">
         <div className="navs">
-          <div className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+          <div className='nav-menu'>
             <div className="nav-link-toggle">
-              {renderLinkData()
+              {rederSiderbarNav()
               }
             </div>
-            <AiIcons.AiOutlineClose className=" color"
-              onClick={() => showSidebar(false)} />
+            <AiIcons.AiOutlineClose
+              className=" color"
+              onClick={() => setIsShowSidebar(false)}
+            />
           </div>
-          <div className='d-flex justify-content-between align-content-center align-items-center nav '>
-            <img src={logo} alt="Logo" />
-            <div className=" nav-links align-items-center">
-              {renderLinkData()
-              }
-              <button className="btn1 btn " onClick={() => history.push('/login')}>Login</button>
+          <div className='d-flex justify-content-sm-between  align-items-center'>
+            <div className='d-flex justify-content-sm-between align-content-center align-items-center nav '>
+              <img src={logo} alt="Logo" />
+              <div className=" nav-links align-items-center">
+                {renderLinkData()
+                }
+              </div>
             </div>
-            <FaBars className='humberger' onClick={() => showSidebar('active')} />
+            <div className="d-flex">
+              <div>{setValue.userName}</div>
+              <div className="hamberger-icon">
+
+                <FaBars className='humberger' onClick={() => setIsShowSidebar(true)} />
+              </div>
+            </div>
 
           </div>
         </div>
       </div>
-
 
     </>
   );

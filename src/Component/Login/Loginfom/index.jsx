@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 import './loginform.css'
 import { Button } from 'react-bootstrap';
 function Loginform(props) {
-    const {submitForm}=props
+    const {submitLogin}=props
     return (
         <div>
             <Formik
@@ -20,7 +20,7 @@ function Loginform(props) {
                 })}
                 onSubmit={(values) => {
                     console.log(values)
-                    submitForm(values)
+                    submitLogin(values)
                 }}
             >
                 <Form className="form-group">
@@ -35,7 +35,8 @@ function Loginform(props) {
                         <ErrorMessage name="passWord" />
                     </div>
                     <div className="submit">
-                        <Button className="btn-submit" type="submit"> Đăng nhập</Button>
+                        
+                        <Button className="btn-submit" type="submit" > Đăng nhập</Button>
                     </div>
                 </Form>
             </Formik>

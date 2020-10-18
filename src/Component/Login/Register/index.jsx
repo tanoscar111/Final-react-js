@@ -1,14 +1,15 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import './loginform.css'
 import { Button } from 'react-bootstrap';
-function Register() {
 
+function Register(props) {
+  const{submitRegister}=props
     return (
         <div>
             <Formik
-                initialValues={{ userName: '', passWord: '',repassWord:'' }}
+                initialValues={{ userName: '', passWord: '', repassWord: '' }}
                 validationSchema={Yup.object({
                     userName: Yup.string()
                         .max(15, 'Must be 15 characters or less')
@@ -18,11 +19,14 @@ function Register() {
                         .required('Yêu cầu nhập mật khẩu'),
                     repassWord: Yup.string()
                         .max(20, 'Must be 20 characters or less')
-                        .required('Yêu cầu nhập mật khẩu'),
+                        .required('Yêu cầu nhập mật khẩu')
+                        .oneOf([Yup.ref("passWord")], "Mật khẩu không đúng")
 
                 })}
                 onSubmit={(values) => {
+
                     console.log(values)
+                    submitRegister(values)
                 }}
             >
                 <Form className="form-group">
@@ -36,13 +40,13 @@ function Register() {
                     <div className="text-danger">
                         <ErrorMessage name="passWord" />
                     </div>
-                    <label htmlFor="firstName">Yêu Cầu nhập lại mật khẩu9</label>
+                    <label htmlFor="firstName">Yêu Cầu nhập lại mật khẩu</label>
                     <Field className="form-control" name="repassWord" type="password" />
                     <div className="text-danger">
                         <ErrorMessage name="repassWord" />
                     </div>
                     <div className="submit">
-                        <Button className="btn-submit" type="submit"> Đăng nhập</Button>
+                        <Button className="btn-submit" type="submit"> Đăng Kí</Button>
                     </div>
                 </Form>
             </Formik>
@@ -50,4 +54,4 @@ function Register() {
     );
 }
 
-export default Register;
+export default(Register);

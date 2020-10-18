@@ -1,0 +1,98 @@
+{
+  "productListData": [
+    {
+      "img": "https://cdn.tgdd.vn/Files/2020/03/30/1245627/kinh-nghiem-tim-phong-tro-gia-re-top-xx-website-t.jpg",
+      "name": "Phòng 1",
+      "thongtin": "abcxyz",
+      "gia": "1000,000đ",
+      "giakhuyenmai": "500,000đ"
+    },
+    {
+      "img": "data:image/jpeg;base64,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",
+      "name": "Phòng 2",
+      "thongtin": "abcxyz",
+      "gia": "1000,000đ",
+      "giakhuyenmai": "500,000đ"
+    },
+    {
+      "img": "https://cdn.tgdd.vn/Files/2020/03/30/1245627/kinh-nghiem-tim-phong-tro-gia-re-top-xx-website-t.jpg",
+      "name": "Phòng 1",
+      "thongtin": "abcxyz",
+      "gia": "1000,000đ",
+      "giakhuyenmai": "500,000đ"
+    },
+    {
+      "img": "https://cdn.tgdd.vn/Files/2020/03/30/1245627/kinh-nghiem-tim-phong-tro-gia-re-top-xx-website-t.jpg",
+      "name": "Phòng 1",
+      "thongtin": "abcxyz",
+      "gia": "1000,000đ",
+      "giakhuyenmai": "500,000đ"
+    },
+    {
+      "img": "https://cdn.tgdd.vn/Files/2020/03/30/1245627/kinh-nghiem-tim-phong-tro-gia-re-top-xx-website-t.jpg",
+      "name": "Phòng 1",
+      "thongtin": "abcxyz",
+      "gia": "1000,000đ",
+      "giakhuyenmai": "500,000đ"
+    },
+    {
+      "img": "https://cdn.tgdd.vn/Files/2020/03/30/1245627/kinh-nghiem-tim-phong-tro-gia-re-top-xx-website-t.jpg",
+      "name": "Phòng 1",
+      "thongtin": "abcxyz",
+      "gia": "1000,000đ",
+      "giakhuyenmai": "500,000đ"
+    },
+    {
+      "img": "https://cdn.tgdd.vn/Files/2020/03/30/1245627/kinh-nghiem-tim-phong-tro-gia-re-top-xx-website-t.jpg",
+      "name": "Phòng 1",
+      "thongtin": "abcxyz",
+      "gia": "1000,000đ",
+      "giakhuyenmai": "500,000đ"
+    },
+    {
+      "img": "https://cdn.tgdd.vn/Files/2020/03/30/1245627/kinh-nghiem-tim-phong-tro-gia-re-top-xx-website-t.jpg",
+      "name": "Phòng 1",
+      "thongtin": "abcxyz",
+      "gia": "1000,000đ",
+      "giakhuyenmai": "500,000đ"
+    },
+    {
+      "img": "https://cdn.tgdd.vn/Files/2020/03/30/1245627/kinh-nghiem-tim-phong-tro-gia-re-top-xx-website-t.jpg",
+      "name": "Phòng 1",
+      "thongtin": "abcxyz",
+      "gia": "1000,000đ",
+      "giakhuyenmai": "500,000đ"
+    },
+    {
+      "img": "https://cdn.tgdd.vn/Files/2020/03/30/1245627/kinh-nghiem-tim-phong-tro-gia-re-top-xx-website-t.jpg",
+      "name": "Phòng 1",
+      "thongtin": "abcxyz",
+      "gia": "1000,000đ",
+      "giakhuyenmai": "500,000đ"
+    },
+    {
+      "img": "https://cdn.tgdd.vn/Files/2020/03/30/1245627/kinh-nghiem-tim-phong-tro-gia-re-top-xx-website-t.jpg",
+      "name": "Phòng 1",
+      "thongtin": "abcxyz",
+      "gia": "1000,000đ",
+      "giakhuyenmai": "500,000đ"
+    }
+  ],
+  "usertListData": [
+    {
+      "userName": "tan123",
+      "passWord": "123",
+      "id": 1
+    },
+    {
+      "userName": "tan123",
+      "passWord": "123",
+      "id": 2
+    },
+    {
+      "userName": "anhtu123",
+      "passWord": "123",
+      "id": 3
+    }
+  ]
+}

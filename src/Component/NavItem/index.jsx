@@ -10,7 +10,7 @@ function NavItem(props) {
 
         <>
 
-            <div className="nav-li" onClick={() => history.push(path)}>{name}</div>
+            <p className="nav-li" onClick={() => history.push(path)}>{name}</p>
 
             
         </>

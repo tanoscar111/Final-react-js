@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-import HomePage from './Page/HomePage'
+import Home from './Component/Home'
+import DefautHome from './Page/DefautHome'
 import LoginPage from './Page/LoginPage'
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Router } from "react-router";
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import myReducer from './Redux/Reducers/index';
+import logger from 'redux-logger'
 import history from './history';
 import {
   Switch,
@@ -13,19 +17,31 @@ import {
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Login from './Component/Login'
+import ListPage from './Page/ListPage';
+import Main from './Component/Main';
+import './App.css';
+// sagas
+import createSagaMiddleware from 'redux-saga';
+import mySaga from './Redux/Sagas'
+const sagaMiddleware = createSagaMiddleware()
+const myStore = createStore(myReducer,
+  applyMiddleware(...[sagaMiddleware,logger]));
+sagaMiddleware.run(mySaga)
 ReactDOM.render(
   <React.StrictMode>
-    <Router history={history}>
-      <Switch>
+    <Provider store={myStore}>
+      <Router history={history}>
+        <Switch>
+          <DefautHome exact path="/" component={Home} />
+          <ListPage exact path="/About" component={Main} />
 
-        <HomePage exact path="/" component={HomePage} />
-        <LoginPage exact path='/login' component={Login} />
-
-
-      </Switch>
-    </Router>
+          <LoginPage exact path='/login' component={Login} />
 
 
+        </Switch>
+      </Router>
+
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
