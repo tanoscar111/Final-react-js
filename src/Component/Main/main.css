@@ -1,15 +1,15 @@
-@font-face {
-  font-family: 'Open Sans';
+/* @font-face {
+  font-family: 'NHaasGroteskTXPro-55Rg';
   font-style: normal;
   font-weight: 400;
-  src: url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swa');
   /* IE9 Compat Modes */
 
-}
+
 
 .main {
   background: #eaebef;
   font-family: 'Open Sans';
+  position: relative;
 }
 
 .formsearch {
@@ -40,23 +40,23 @@ input::placeholder {
 }
 
 .listSiderbar {
-  background-color: #3e3f43;
+  position: sticky;
+  height: 70%; 
   
-  margin-top: 50px;
-  height: 70%;
-  margin-left: 65px;
-  position: static;
 }
 
 .listName {
-  font-family: 'Open Sans';
+  width: 315px;
+  position: static;
+  font-family: 'NHaasGroteskTXPro-55Rg';
   font-size: 16px;
   font-weight: 900;
-  color: white;
-  margin-top: 42px;
+  color: black;
+  height:calc(100vh - 5em);
   padding-left: 26px;
   padding-right: 16px;
   text-transform: capitalize;
+  border-right: 1px solid hsla(0,0%,62.7%,.3);
 }
 
 .listName h3 {

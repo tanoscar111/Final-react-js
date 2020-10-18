@@ -109,7 +109,10 @@ a
 .product-links {
     text-align: right;
 }
-
+.div-button{
+    display: flex;
+    justify-content: flex-end;
+}
 .product-links a {
     display: inline-block;
     margin-left: 5px;
@@ -121,3 +124,55 @@ a
 .product-links a:hover {
     color: #fbb72c;
 }
+.corner-button {
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 0.02rem;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid #333;
+    
+    font-size: 20px;
+    color: #264561;
+    position: relative;
+    transition: color 0.3s;
+    width: 100px;
+    height: 54px;
+  }
+  .corner-button:hover {
+      background-color: #fafafa;
+    color: #3d3e42;
+  }
+  .corner-button:hover::before {
+    width: 0;
+  }
+  .corner-button:hover::after {
+    height: 0;
+  }
+  .corner-button:active {
+    border-width: 0.25rem;
+  }
+  .corner-button span {
+    position: relative;
+    z-index: 2;
+  }
+  .corner-button::before, .corner-button::after {
+    content: '';
+    position: absolute;
+    background: #fafafa;
+    z-index: 1;
+    transition: all 0.3s;
+  }
+  .corner-button::before {
+    width: calc(100% - 3rem);
+    height: calc(101% + 1rem);
+    top: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .corner-button::after {
+    height: calc(100% - 3rem);
+    width: calc(101% + 1rem);
+    left: -0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }

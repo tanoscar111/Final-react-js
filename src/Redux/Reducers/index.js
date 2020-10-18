@@ -3,8 +3,10 @@ import { combineReducers } from 'redux';
 
 //reducer 2
 import productreducer from './Productlist.reducer';
-import registerreducer from './Register.reducer'
+import registerreducer from './Register.reducer';
+import detailproductlist from './DetailProductList.reducer'
 export default combineReducers({
   registerreducer: registerreducer,
-   productreducer: productreducer
+   productreducer: productreducer,
+   detailproductlist:detailproductlist,
 })

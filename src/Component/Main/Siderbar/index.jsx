@@ -8,7 +8,9 @@ function Siderbar(props) {
   return (
 
     <>
-      <div className=" siderbarName">{listName}</div>
+      <div className=" siderbarName">
+        {listName}
+        </div>
 
 
 

@@ -23,6 +23,7 @@ import './App.css';
 // sagas
 import createSagaMiddleware from 'redux-saga';
 import mySaga from './Redux/Sagas'
+import ProductDetail from './Component/ProductDetail';
 const sagaMiddleware = createSagaMiddleware()
 const myStore = createStore(myReducer,
   applyMiddleware(...[sagaMiddleware,logger]));
@@ -34,8 +35,9 @@ ReactDOM.render(
         <Switch>
           <DefautHome exact path="/" component={Home} />
           <ListPage exact path="/About" component={Main} />
-
+          
           <LoginPage exact path='/login' component={Login} />
+          <ListPage exact path="/About/:id" component={ProductDetail} />
 
 
         </Switch>

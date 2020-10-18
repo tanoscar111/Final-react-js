@@ -11,6 +11,9 @@
     flex: 1;
 
 }
+ .active{
+    background-color: aqua;
+}
 
 .color {
     color: white;
@@ -121,6 +124,12 @@ img {
 
 .sidebar-item {
 
+}
+.nameUser{
+    padding-right: 13px;
+    padding-left: 18px;
+    border-left: 1px solid hsla(0,0%,62.7%,.3);
+    white-space: nowrap;
 }
 
 .close-sidebar-icon {

@@ -4,6 +4,7 @@ import {
 } from "react-router-dom";
 import Main from '../../Component/Main';
 import Nav from '../../Component/Nav';
+import ScrollToTop from '../../ScrollTotop';
 
 function ListPage({ component: Component, ...props }) {
 
@@ -13,8 +14,10 @@ function ListPage({ component: Component, ...props }) {
      
       render={(routerProps) => (
         <>
+        <ScrollToTop/>
           <Nav />
-          <Main />
+          {/* <Main /> */}
+          <Component {...routerProps} />
         </>
       )}
     />

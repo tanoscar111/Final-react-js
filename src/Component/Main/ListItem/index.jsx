@@ -1,26 +1,31 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { getProductList } from '../../../Redux/Actions/index'
 import { connect } from 'react-redux';
-import './lisitem.css'
 
+import './lisitem.css'
+import history from "../../../history"
 function ListItem(props) {
     const { productListData, getListProduct } = props;
     console.log(props)
+
     useEffect(() => {
         getListProduct({
             page: 1,
             limit: 10,
-        }
-        )
+        })
+
+
     }, [])
+
     function renderDataList() {
         return productListData.map((itemList, indexItemList) => {
             return (
                 <>
 
-                    <div className="  col-md-3 " key={`itemList${indexItemList}`}>
-                        <div class="product-card">
-                            <div class="badge">Hot</div>
+                    <div className="  col-md-3 " key={`itemList${indexItemList}`}
+                    >
+                        <div class="product-card"  onClick={() => history.push(`/About/${itemList.id}`)}>
+                            <div class="badge">{itemList.type}</div>
                             <div class="product-tumb">
                                 <img src={itemList.img} alt="imgList" className="imgcard" />
                             </div>
@@ -31,6 +36,11 @@ function ListItem(props) {
                                 <div class="product-bottom-details">
                                     <div class="product-price"><small>{itemList.gia}</small>{itemList.giakhuyenmai}</div>
 
+                                </div>
+                                <div className="div-button">
+                                    <button class="corner-button"
+                                        onClick={() => history.push(`/About/${itemList.id}`)}
+                                    ><span>Chi tiết</span></button>
                                 </div>
                             </div>
                         </div>

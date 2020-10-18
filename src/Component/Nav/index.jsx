@@ -31,7 +31,10 @@ function Nav(props) {
       path: '/login',
     }
   ]
+  const [navBar ,setNavBar]=useState(false)
+
   const getvalues = localStorage.getItem("myValueInLocalStorage");
+
   const setValue = JSON.parse(getvalues);
   console.log("TCL: Nav -> setValue", setValue)
 
@@ -61,6 +64,15 @@ function Nav(props) {
     });
   }
 
+  const changeBackround= ()=>{
+    console.log(window.scrollY);
+    if(window.screenY>=80){
+      setNavBar(true)
+    }else{
+      setNavBar(false)
+    }
+  };
+  window.addEventListener('scroll',changeBackround)
   function rederSiderbarNav() {
     return linkData.map((sidebarNav, sidebarNavIndex) => {
       return (
@@ -90,7 +102,7 @@ function Nav(props) {
         />
       </div>
       <div className="Home">
-        <div className="navs">
+        <div className="navs" >
           <div className='nav-menu'>
             <div className="nav-link-toggle">
               {rederSiderbarNav()
@@ -102,7 +114,7 @@ function Nav(props) {
             />
           </div>
           <div className='d-flex justify-content-sm-between  align-items-center'>
-            <div className='d-flex justify-content-sm-between align-content-center align-items-center nav '>
+            <div className={navBar ? 'd-flex justify-content-sm-between align-content-center align-items-center nav  active' : 'd-flex justify-content-sm-between  align-items-center'}>
               <img src={logo} alt="Logo" />
               <div className=" nav-links align-items-center">
                 {renderLinkData()
@@ -110,7 +122,7 @@ function Nav(props) {
               </div>
             </div>
             <div className="d-flex">
-              <div>{setValue.userName}</div>
+              <div className="nameUser">{setValue.userName}</div>
               <div className="hamberger-icon">
 
                 <FaBars className='humberger' onClick={() => setIsShowSidebar(true)} />
