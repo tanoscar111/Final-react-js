@@ -27,8 +27,7 @@ const listSiderBar = [
 
 function Main(props) {
   const { productListData, getList } = props;
-  console.log(props);
-  console.log(history);
+  
 
   function renderListSiderBar() {
     return listSiderBar.map((itemSiderBar, indexSiderBar) => {
@@ -38,41 +37,25 @@ function Main(props) {
       )
     })
   }
-  const classes = useStyles();
-  const [value, setValue] = React.useState([0, 100]);
 
-  const handleChange = (event, newValue) => {
-    console.log("TCL: handleChange -> newValue", newValue)
-
-    setValue(newValue);
-  };
-  function valuetext(value) {
-    return `${value}°C`;
-  }
 
   return (
     <>
 
       <div className="main container-fluid">
         <div className="row">
-          <div className="">
-            <div className={classes.root}>
+          <div className=" siderbarsum">
 
-            </div>
             <div className="listSiderbar">
               <div className="listName">
                 <h3>Danh sách phòng</h3>
                 {renderListSiderBar()}
-                <h3>Xếp hạng theo đơn giá</h3>
-                <div className={classes.root}>
-                  <Slider
-                    value={value}
-                    onChange={handleChange}
-                    valueLabelDisplay="auto"
-                    aria-labelledby="range-slider"
-                    getAriaValueText={valuetext}
-                  />
-                </div>
+
+              </div>
+              <div>
+                <label>
+                  <input type="text" required  placeholder="Search"/>l
+                </label>
               </div>
             </div>
           </div>
@@ -90,7 +73,7 @@ function Main(props) {
 
 }
 const mapStateToProps = (state) => {// lấy state từ store của reducers
-  console.log("TCL: mapStateToProps -> state", state);
+  
   const { productListData } = state;// lấy array của productsList tring store
   return {
     productListData,

@@ -5,13 +5,22 @@ const initialState = {
 };
 
 function productReducer(state = initialState, action) {
-  console.log("TCL: myReducer -> action", state)
   switch (action.type) {
     case GET_PRODUCT_LIST_SUCCESS: { //action gửi cái max qua để check
+      const { data, more } = action.payload;
+      if (more) {
+        return {
+          ...state,
+          productListData: [
+            ...state.productListData,
+            ...data,
+          ],
+        }
+      }
       return {
         ...state,
         productListData: [
-          ...action.payload,
+          ...data,
         ],
       }
     } 

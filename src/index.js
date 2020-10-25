@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import Home from './Component/Home'
 import DefautHome from './Page/DefautHome'
 import LoginPage from './Page/LoginPage'
+import AdminLogin from './Page/Admin/Login'
+import AdminProductList from './Page/Admin/ProductList'
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Router } from "react-router";
@@ -11,6 +13,8 @@ import { Provider } from 'react-redux';
 import myReducer from './Redux/Reducers/index';
 import logger from 'redux-logger'
 import history from './history';
+
+import 'antd/dist/antd.css'; 
 import {
   Switch,
 } from "react-router-dom";
@@ -19,11 +23,13 @@ import "slick-carousel/slick/slick-theme.css";
 import Login from './Component/Login'
 import ListPage from './Page/ListPage';
 import Main from './Component/Main';
+import AdminDefaultLayout from './layout/AdminDefaultLayout';
 import './App.css';
 // sagas
 import createSagaMiddleware from 'redux-saga';
 import mySaga from './Redux/Sagas'
 import ProductDetail from './Component/ProductDetail';
+import DetailAdmin from './Component/DetailAdmin';
 const sagaMiddleware = createSagaMiddleware()
 const myStore = createStore(myReducer,
   applyMiddleware(...[sagaMiddleware,logger]));
@@ -34,11 +40,12 @@ ReactDOM.render(
       <Router history={history}>
         <Switch>
           <DefautHome exact path="/" component={Home} />
-          <ListPage exact path="/About" component={Main} />
-          
+          <LoginPage exact path="/admin/login" component={AdminLogin} />
+          <AdminDefaultLayout exact path="/admin/apartments" component={AdminProductList} />
+          <AdminDefaultLayout exact path="/admin/apartment/:id" component={DetailAdmin} />
           <LoginPage exact path='/login' component={Login} />
-          <ListPage exact path="/About/:id" component={ProductDetail} />
-
+          <ListPage exact path="/apartments" component={Main} />
+          <ListPage exact path="/apartment/:id" component={ProductDetail} />
 
         </Switch>
       </Router>

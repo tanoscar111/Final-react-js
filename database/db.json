@@ -5,15 +5,21 @@
       "img": "https://cdn.tgdd.vn/Files/2020/03/30/1245627/kinh-nghiem-tim-phong-tro-gia-re-top-xx-website-t.jpg",
       "name": "Phòng 1",
       "thongtin": "abcxyz",
-      "gia": "1000,000đ",
-      "giakhuyenmai": "500,000đ",
+      "gia": 1000000,
+      "giakhuyenmai": 500000,
+      "tiendien": 500000123123,
+      "tiennuoc": 123123123123123,
+      "tienmang": 500000,
+      "tienvesinh": 500000,
       "imgDetail": "https://cdn.nhatrotot.com/images/000022565/133-26u-ngo-duc-ke-phuong-12-quan-binh-thanh-thanh-pho-ho-chi-minh-000022565001.jpg",
       "images": [
         "https://cdn.nhatrotot.com/images/000022565/133-26u-ngo-duc-ke-phuong-12-quan-binh-thanh-thanh-pho-ho-chi-minh-000022565001.jpg",
         "https://cdn.chotot.com/X70xyEqgBcuOgQEwwSCtCcXy9YIDUSVkHNXEYZdM4cs/preset:view/plain/3369550933.jpg"
       ],
-      "type": "Phòng sinh viên"
-      
+      "type": "Phòng sinh viên",
+      "tenphong": "Phòng 1",
+      "giaphong": 1000000,
+      "noidung": "abcxyz"
     },
     {
       "id": 2,
@@ -22,7 +28,14 @@
       "thongtin": "abcxyz",
       "gia": "1000,000đ",
       "giakhuyenmai": "500,000đ",
-      "type": "Phòng Khu chung cư"
+      "type": "Phòng Khu chung cư",
+      "tenphong": "Phòng 222",
+      "giaphong": "1000,000đ",
+      "tiendien": 1231,
+      "tiennuoc": 123,
+      "tienmang": 123,
+      "tienvesinh": 123,
+      "noidung": "abcxyz"
     },
     {
       "id": 3,
@@ -105,22 +118,17 @@
     {
       "userName": "tan123",
       "passWord": "123",
+      "role": "admin",
       "id": 1
-    },
-    {
-      "userName": "tan123",
-      "passWord": "123",
-      "id": 2
     },
     {
       "userName": "anhtu123",
       "passWord": "123",
-      "id": 3
+      "role": "user",
+      "id": 2
     }
   ],
   "detailProductListData": [
-    {
-
-    }
+    {}
   ]
 }

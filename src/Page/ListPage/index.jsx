@@ -1,23 +1,23 @@
 import React from 'react';
 import {
   Route,
+  Redirect,
 } from "react-router-dom";
-import Main from '../../Component/Main';
+import Footer from '../../Component/Footer';
 import Nav from '../../Component/Nav';
-import ScrollToTop from '../../ScrollTotop';
 
-function ListPage({ component: Component, ...props }) {
 
+function ListPage({ component: Component, role, ...props }) {
   return (
     <Route
       {...props}
      
       render={(routerProps) => (
         <>
-        <ScrollToTop/>
-          <Nav />
-          {/* <Main /> */}
+       
+          <Nav  {...routerProps} />
           <Component {...routerProps} />
+          <Footer/>
         </>
       )}
     />

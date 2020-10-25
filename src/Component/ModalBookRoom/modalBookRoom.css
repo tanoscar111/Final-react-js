@@ -1,0 +1,15 @@
+.price-room>div:nth-child(odd) {
+  background: #f6f6f6;
+}
+
+.modal-dialog {
+  max-width: 661px !important
+}
+
+.modal-content {
+  width: 702px !important;
+}
+
+.price-item {
+  padding: 8px 15px;
+}

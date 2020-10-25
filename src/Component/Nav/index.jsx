@@ -5,13 +5,18 @@ import NavItem from '../NavItem'
 import { FaBars } from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import logo from '../../image/logo.jpg'
-
-
+import {
+  Route,
+  Redirect,
+} from "react-router-dom";
+import { Dropdown } from 'react-bootstrap';
 import history from '../../history'
+import { logoutUser} from '../../Redux/Actions'
+import { connect } from 'react-redux';
 
 function Nav(props) {
   const [isShowSidebar, setIsShowSidebar] = useState(false);
-  console.log("Nav -> isShowSidebar", isShowSidebar)
+  
 
   const linkData = [
     {
@@ -20,7 +25,7 @@ function Nav(props) {
     },
     {
       name: 'Thuê Phòng trọ',
-      path: '/About'
+      path: '/apartments'
     },
     {
       name: 'Chủ nhà',
@@ -31,15 +36,10 @@ function Nav(props) {
       path: '/login',
     }
   ]
-  const [navBar ,setNavBar]=useState(false)
+  const [navBar, setNavBar] = useState(false)
 
-  const getvalues = localStorage.getItem("myValueInLocalStorage");
-
-  const setValue = JSON.parse(getvalues);
-  console.log("TCL: Nav -> setValue", setValue)
-
-
-
+  const authData = JSON.parse(localStorage.getItem("myValueInLocalStorage"));
+  const {logoutUser}=props;
   function renderLinkData() {
     return linkData.map((itemLink, indexLink) => {
       return (
@@ -64,15 +64,15 @@ function Nav(props) {
     });
   }
 
-  const changeBackround= ()=>{
-    console.log(window.scrollY);
-    if(window.screenY>=80){
+  const changeBackround = () => {
+    
+    if (window.screenY >= 80) {
       setNavBar(true)
-    }else{
+    } else {
       setNavBar(false)
     }
   };
-  window.addEventListener('scroll',changeBackround)
+  window.addEventListener('scroll', changeBackround)
   function rederSiderbarNav() {
     return linkData.map((sidebarNav, sidebarNavIndex) => {
       return (
@@ -90,6 +90,12 @@ function Nav(props) {
   //       values:values
   //     })
   // }
+  function logoutUsers() {
+    localStorage.removeItem("myValueInLocalStorage");
+    return (
+      <Redirect to="/" />
+    )
+  }
   return (
     <>
       <div className={isShowSidebar ? 'sidebar-container active' : 'sidebar-container'}>
@@ -103,7 +109,6 @@ function Nav(props) {
       </div>
       <div className="Home">
         <div className="navs" >
-          <div className='nav-menu'>
             <div className="nav-link-toggle">
               {rederSiderbarNav()
               }
@@ -112,7 +117,7 @@ function Nav(props) {
               className=" color"
               onClick={() => setIsShowSidebar(false)}
             />
-          </div>
+         
           <div className='d-flex justify-content-sm-between  align-items-center'>
             <div className={navBar ? 'd-flex justify-content-sm-between align-content-center align-items-center nav  active' : 'd-flex justify-content-sm-between  align-items-center'}>
               <img src={logo} alt="Logo" />
@@ -121,8 +126,17 @@ function Nav(props) {
                 }
               </div>
             </div>
-            <div className="d-flex">
-              <div className="nameUser">{setValue.userName}</div>
+            <div className="d-flex ">
+
+              <Dropdown>
+                {authData && <Dropdown.Toggle className="nameUser">
+                  {authData.userName}
+                </Dropdown.Toggle>}
+
+                <Dropdown.Menu>
+                  <Dropdown.Item onClick={() => logoutUsers()} >đăng xuất</Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
               <div className="hamberger-icon">
 
                 <FaBars className='humberger' onClick={() => setIsShowSidebar(true)} />
@@ -137,4 +151,18 @@ function Nav(props) {
   );
 }
 
-export default Nav;
+const mapStateToProps = (state) => {// lấy state từ store của reducers
+  
+  const { usertListData } = state;// lấy array của productsList tring store
+  return {
+    usertListData,
+  };
+
+}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    logoutUser: (param) => dispatch(logoutUser(param)),
+    
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Nav);

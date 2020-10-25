@@ -1,0 +1,69 @@
+.footer {
+  background: white;
+  overflow: hidden;
+  height: 41vh;
+  position: relative;
+  padding-top: 28px;
+}
+
+
+.footer .left .des {
+  font-size: 17px;
+  font-style: normal;
+  line-height: 28px;
+  padding-right: 20px;
+  font-weight: 600;
+}
+.footer .left .address {
+  font-size: 14px;
+  line-height: 168.09%;
+  margin-top: 221px;
+}
+.phone {
+  font-size: 14px;
+  line-height: 168.09%;
+}
+.icon-phone{
+  font-size: 35px;
+}
+
+.social {
+  display: flex;
+  margin-top: 20px;
+}
+.map-address{
+  height: 41vh;
+  width: 100%;
+  
+}
+.back-to-top {
+  position: absolute;
+  right: 178px;
+  display: flex;
+  align-items: center;
+  transform: rotateZ(90deg);
+  -webkit-transform: rotateZ(90deg);
+  -o-transform: rotateZ(90deg);
+  cursor: pointer;
+  letter-spacing: 3px;
+  font-size: 10px;
+      top: 248px;
+}
+.line {
+  width: 150px;
+  height: 1px;
+  background: black;
+  margin-right: 10px;
+}
+
+.map-address{
+  height: 41vh;
+  width: 100%;
+}
+.map{
+  height: 100%;
+}
+iframe{
+  height: 100%;
+  width: 100%;
+}

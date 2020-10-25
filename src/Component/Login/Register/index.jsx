@@ -25,7 +25,7 @@ function Register(props) {
                 })}
                 onSubmit={(values) => {
 
-                    console.log(values)
+                  
                     submitRegister(values)
                 }}
             >

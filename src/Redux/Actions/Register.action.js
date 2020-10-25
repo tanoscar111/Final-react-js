@@ -1,7 +1,11 @@
 import {
   GET_USER,
   CREATE_USER,
-  CHECK_USER
+  CHECK_USER,
+  LOGIN_ADMIN,
+  LOGOUT_USER,
+  
+  
 } from '../Constants';
 
 export function getListUser(params) {
@@ -24,3 +28,15 @@ export function checkuser(params) {
   }
 }
 
+export function loginAdmin(param){
+  return{
+    type:LOGIN_ADMIN,
+    payload:param
+    }
+}
+export function logoutUser(param){
+  return {
+    tpe:LOGOUT_USER,
+    payload:param
+  }
+}

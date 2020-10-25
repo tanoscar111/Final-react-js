@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import './loginform.css'
+import './loginadmin.css'
 import { Button } from 'react-bootstrap';
 function Loginform(props) {
     const {submitLogin}=props
@@ -19,7 +19,7 @@ function Loginform(props) {
 
                 })}
                 onSubmit={(values) => {
-                    
+                  
                     submitLogin(values)
                 }}
             >

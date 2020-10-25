@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { getProductList } from '../../../Redux/Actions/index'
+import { getProductList } from '../../../Redux/Actions'
 import { connect } from 'react-redux';
 
-import './lisitem.css'
+import './productadmin.css'
 import history from "../../../history"
-function ListItem(props) {
+function ProductList(props) {
     const [currentPage, setCurrentPage] = useState(1);
     const { productListData, getListProduct } = props;
-    
+
 
     useEffect(() => {
         getListProduct({
             page: currentPage,// khởi đầu page là 1
             limit: 4,
-            more: false,
         });
 
 
@@ -25,7 +24,6 @@ function ListItem(props) {
             page: currentPage + 1,
             // load tiếp page +thêm 1
             limit: 4, //load thêm 4 phần tử
-            more: true,
         });
         setCurrentPage(currentPage + 1);// lưu lại
     }
@@ -37,7 +35,7 @@ function ListItem(props) {
 
                     <div className="  col-md-3 " key={`itemList${indexItemList}`}
                     >
-                        <div class="product-card" onClick={() => history.push(`/apartment/${itemList.id}`)}>
+                        <div class="product-card" onClick={() => history.push(`/admin/apartment/${itemList.id}`)}>
                             <div class="badge">{itemList.type}</div>
                             <div class="product-tumb">
                                 <img src={itemList.img} alt="imgList" className="imgcard" />
@@ -52,8 +50,8 @@ function ListItem(props) {
                                 </div>
                                 <div className="div-button">
                                     <button class="corner-button"
-                                        onClick={() => history.push(`/apartment/${itemList.id}`)}
-                                    ><span>Chi tiết</span></button>
+                                        onClick={() => history.push(`/admin/apartment/${itemList.id}`)}
+                                    ><span>Chỉnh sửa</span></button>
                                 </div>
                             </div>
                         </div>
@@ -66,7 +64,7 @@ function ListItem(props) {
     }
     return (
         <>
-            <div className="   ">
+            <div className="">
                 <div className=" row ">
                     {renderDataList()}
 
@@ -95,4 +93,4 @@ const mapDispatchToProps = (dispatch) => {
         getListProduct: (params) => dispatch(getProductList(params)),
     };
 }// lấy action từ store
-export default connect(mapStateToProps, mapDispatchToProps)(ListItem);
+export default connect(mapStateToProps, mapDispatchToProps)(ProductList);

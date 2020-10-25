@@ -14,6 +14,7 @@ import Main from '../../Component/Main'
 import {
     Route,
 } from "react-router-dom";
+import Footer from '../../Component/Footer';
 
 
 function HomePage({ component: Component, ...props }) {
@@ -26,6 +27,7 @@ function HomePage({ component: Component, ...props }) {
                 <>
                     <Nav  />
                     <Home/>
+                    <Footer/>
                    
                 </>
             )}

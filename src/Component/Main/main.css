@@ -10,6 +10,7 @@
   background: #eaebef;
   font-family: 'Open Sans';
   position: relative;
+  border-bottom: 1px solid hsla(0, 0%, 62.7%, .3);
 }
 
 .formsearch {
@@ -36,13 +37,17 @@ input::placeholder {
   background-color: black;
 }
 
-.list {
+.list {}
+
+.siderbarsum {
+  border-right: 1px solid hsla(0, 0%, 62.7%, .3);
 }
 
 .listSiderbar {
-  position: sticky;
-  height: 70%; 
-  
+
+  height: 70%;
+  border-bottom: 1px solid hsla(0, 0%, 62.7%, .3);
+
 }
 
 .listName {
@@ -52,19 +57,43 @@ input::placeholder {
   font-size: 16px;
   font-weight: 900;
   color: black;
-  height:calc(100vh - 5em);
+  height: 56vh;
   padding-left: 26px;
   padding-right: 16px;
   text-transform: capitalize;
-  border-right: 1px solid hsla(0,0%,62.7%,.3);
+  
 }
 
 .listName h3 {
-  margin-bottom: 23px;
+  margin-bottom: 144px;
   font-size: 18px;
   text-transform: capitalize;
   font-weight: 600;
+  margin-top: 50px;
 }
-.makeStyles-root-1{
+
+.makeStyles-root-1 {
   width: 200px !important;
 }
+
+
+label {
+  width: 100%;
+  max-width: 300px;
+}
+input {
+  width: 100%;
+  display: flex;
+  padding: 15px;
+  background-color: white;
+  
+  color: #111;
+  font-size: 15px;
+  border: 1px solid hsla(0, 0%, 62.7%, .3);
+  
+  
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
+

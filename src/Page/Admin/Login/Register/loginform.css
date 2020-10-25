@@ -1,0 +1,14 @@
+.form-group {
+    padding: 10px 30px !important;
+}
+.submit{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    
+}
+.btn-submit{
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 27%, rgba(0,212,255,1) 100%) !important;
+    border-radius: 30px !important;
+    padding: 10px 30px !important;
+}

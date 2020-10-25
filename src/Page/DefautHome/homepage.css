@@ -1,6 +1,6 @@
 .slick-slider{
-  height:calc(100vh - 10vh) !important;
-  z-index: -1 !important;
+  height:calc(100vh - 10vh);
+  
 }
 .imgSlider{
   width: 100% ;

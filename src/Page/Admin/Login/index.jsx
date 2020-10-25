@@ -4,28 +4,24 @@ import './login.css'
 import Loginform from '../Login/Loginfom'
 import Register from '../Login/Register'
 import { Button } from 'react-bootstrap';
-import { getListUser, createUser, checkuser } from '../../Redux/Actions'
+import { getListUser, createUser, loginAdmin } from '../../../Redux/Actions'
 import { connect } from 'react-redux';
 
 function Login(props) {
     const [showLogin, setShowLogin] = useState('')
-    const { getListUser, createUser, usertListData, checkuser } = props
-
-    useEffect(() => {
-        getListUser();
-    }, [])
+    const { usertListData, loginAdmin } = props
     
     function toggleLogin(type) {
-       
+     
         setShowLogin(type)
        
 
     }
     function submitLogin(values) {
-        checkuser({
+       
+        loginAdmin({
             userName:values.userName,
             passWord: values.passWord,
-            role: 'user',
         })
     }
 
@@ -72,20 +68,11 @@ function Login(props) {
         </div>
     );
 }
-const mapStateToProps = (state) => {// lấy state từ store của reducers
-   
-    const { usertListData } = state;// lấy array của productsList tring store
-    return {
-        usertListData,
-    };
 
-}
 const mapDispatchToProps = (dispatch) => {
     return {
-        getListUser: (param) => dispatch(getListUser(param)),
-        createUser: (param) => dispatch(createUser(param)),
-        checkuser: (param) => dispatch(checkuser(param))
+        loginAdmin: (param) => dispatch(loginAdmin(param))
 
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(null, mapDispatchToProps)(Login);

@@ -6,7 +6,7 @@ const initialState = {
 };
 
 function registerReducer(state = initialState, action) {
-  console.log("TCL: myReducer -> action", state)
+
   switch (action.type) {
     case GET_USER_SUCCESS: { //action gửi cái max qua để check
       return {
@@ -26,6 +26,7 @@ function registerReducer(state = initialState, action) {
         ],
       }
     }
+    
     default: {
       return state;
     }
