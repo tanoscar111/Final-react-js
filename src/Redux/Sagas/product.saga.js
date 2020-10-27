@@ -9,8 +9,16 @@ import {
 function* getProductListSaga(action) {
   const apiUrl = 'http://localhost:3001';
   try {
-    const { page, limit, more } = action.payload;
-    const response = yield axios.get(`${apiUrl}/productListData?_page=${page}&_limit=${limit}`);
+    const { page, limit, type, more } = action.payload;
+    const response = yield axios({
+      method: 'GET',
+      url: `${apiUrl}/productListData`,
+      params: {
+        _page: page,
+        _limit: limit,
+        ...type && { type }
+      }
+    });
     const data = response.data;
 
     yield put({

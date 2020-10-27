@@ -3,7 +3,7 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import Nav from '../Component/Nav';
+import HeaderAdmin from '../Page/Admin/HeaderAdmin';
 
 
 function AdminDefaultLayout({ component: Component, ...props }) {
@@ -19,7 +19,7 @@ function AdminDefaultLayout({ component: Component, ...props }) {
      
       render={(routerProps) => (
         <>
-          <Nav />
+          <HeaderAdmin />
           <Component {...routerProps} />
         </>
       )}

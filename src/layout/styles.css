@@ -1,0 +1,12 @@
+.default-layout-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.default-layout-content {
+  padding: 16px;
+  max-width: 1400px;
+  width: 100%;
+}

@@ -1,0 +1,143 @@
+.host {
+  margin: 0 auto;
+  max-width: 100%;
+  padding: 3em;
+  width: 85em;
+}
+
+.breadcrumb {
+  padding-left: 0;
+  position: relative;
+}
+
+.host-item {
+  color: #1bada1;
+}
+
+.fadeTop.ef-slide {
+  opacity: 1;
+  transform: translate(0);
+}
+
+.post {
+  padding: 2em 2em .1em;
+  background: #fff;
+  border: 1px solid hsla(0, 0%, 62.7%, .3);
+  margin: 0 0 2em;
+  position: relative;
+  -webkit-box-shadow: 0 10px 10px -10px #aaa;
+  box-shadow: 0 10px 10px -10px #aaa;
+  word-break: break-word;
+}
+
+.post>header {
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 1px solid hsla(0, 0%, 62.7%, .3);
+  left: -2em;
+  margin: -2em 0 2em;
+  position: relative;
+  width: calc(100% + 4em);
+}
+
+.post>header .title {
+  -moz-flex-grow: 1;
+  -ms-flex-grow: 1;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -ms-flex: 1;
+  padding: 1em 2em;
+  text-align: center;
+  position: relative;
+}
+
+.post>header .title:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: calc(50% - 10px);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #1bada1;
+}
+
+.post>header .title:after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  width: 50%;
+  left: 25%;
+  height: 1px;
+  background: #1bada1;
+}
+
+#openCV {
+  margin-left: 2em;
+  min-width: 20em;
+  width: 20em;
+  position: sticky;
+  top: 100px;
+}
+
+#intro {
+  text-align: center;
+}
+
+#intro .logo {
+  border-bottom: 0;
+  display: block;
+  margin: 0 auto 1em;
+  overflow: hidden;
+  position: relative;
+  width: 10em;
+  height: 10em;
+  border-radius: 50%;
+  background-image: url(../../../image/openCV.JPG);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#intro .logo img {
+  display: block;
+  width: 6.5em;
+}
+
+#openCV>* {
+  border-top: 1px solid hsla(0, 0%, 62.7%, .3);
+  margin: 2em 0 0;
+  padding: 2em 0 0;
+}
+
+.blurb p {
+  text-align: justify;
+  font-size: .9em;
+  margin-bottom: .5em;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+}
+
+.post .description-post {
+  font-size: .83333em;
+  text-align: center;
+  padding: 1em 2em;
+}
+
+.post .description-post>* {
+  text-align: left;
+}
+
+.post .description-post p {
+  letter-spacing: normal;
+  color: #575757;
+  font-size: 1rem;
+}

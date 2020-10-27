@@ -3,7 +3,8 @@ import moment from 'moment';
 
 import history from '../../history'
 import './modalBookRoom.css'
-
+import {createBookingRoom } from '../../Redux/Actions/index'
+import { connect } from 'react-redux';
 import { Modal, Button } from 'react-bootstrap';
 import {
   Form,
@@ -17,7 +18,7 @@ import {
   Row, Col
 } from 'antd';
 function ModalBookRoom(props) {
-  const { isshowModal, handleCloseModal, productId, detailProductListData } = props;
+  const { isshowModal, handleCloseModal, productId, detailProductListData,createBooking } = props;
   console.log("TCL: ModalBookRoom -> detailProductListData", detailProductListData)
   console.log("TCL: ModalBookRoom -> props", props)
   const { Option } = Select;
@@ -46,7 +47,8 @@ function ModalBookRoom(props) {
     console.log('Received values of form: ', values);
   }
   const handleSubmitBooking = (values) => {
-    const newValue = {
+    
+    createBooking({
       tenphong:detailProductListData.tenphong,
       id: detailProductListData.id,
       userId: authData.id,
@@ -54,9 +56,8 @@ function ModalBookRoom(props) {
       name: values.name,
       phone: values.phone,
       note: values.note,
-    }
-    console.log("TCL: handleSubmitBooking -> newValue", newValue)
-    
+    })
+   
   }
   return (
     <>
@@ -64,7 +65,7 @@ function ModalBookRoom(props) {
       <Modal show={isshowModal} onHide={handleCloseModal}>
         <Modal.Header closeButton>
           <Modal.Title>Thông tin đặt phòng
-            <div>dịa chỉ</div>
+            
           </Modal.Title>
 
         </Modal.Header>
@@ -84,16 +85,16 @@ function ModalBookRoom(props) {
           <Modal.Body>
             <div className="price-room">
               <div className="d-flex justify-content-sm-between price-item">
-                <p>Giá thuê phòng</p>
-                <p>500000</p>
+                <p>Giá thuê phòng</p>     
+                 <p>{detailProductListData.giakhuyenmai}</p>
               </div>
               <div className="d-flex justify-content-sm-between price-item">
-                <p>Giá thuê phòng</p>
-                <p>500000</p>
+                <p>Loại phòng</p>
+                <p>{detailProductListData.type}</p>
               </div>
               <div className="d-flex justify-content-sm-between price-item">
-                <p>Giá thuê phòng</p>
-                <p>500000</p>
+                <p>Địa chỉ</p>
+      <p>{detailProductListData.diachi}</p>
               </div>
             </div>
 
@@ -176,10 +177,10 @@ function ModalBookRoom(props) {
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleCloseModal}>
-              Close
+             Thoát
           </Button>
             <Button variant="primary" type="submit"  onClick={handleCloseModal}>
-              Save Changes
+             Đặt phòng
           </Button>
           </Modal.Footer>
         </Form>
@@ -189,4 +190,11 @@ function ModalBookRoom(props) {
 
 }
 
-export default ModalBookRoom;
+const mapDispatchToProps = (dispatch) => {
+  return {
+   
+    createBooking: (params) => dispatch(createBookingRoom(params)),
+  
+  };
+}
+export default connect(null, mapDispatchToProps)(ModalBookRoom);

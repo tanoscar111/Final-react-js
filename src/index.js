@@ -1,7 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Home from './Component/Home'
-import DefautHome from './Page/DefautHome'
 import LoginPage from './Page/LoginPage'
 import AdminLogin from './Page/Admin/Login'
 import AdminProductList from './Page/Admin/ProductList'
@@ -21,15 +19,22 @@ import {
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Login from './Component/Login'
-import ListPage from './Page/ListPage';
-import Main from './Component/Main';
+import ApartmentListPage from './Page/User/ApartmentList';
+import ApartmentDetailPage from './Page/User/ApartmentDetail';
+
 import AdminDefaultLayout from './layout/AdminDefaultLayout';
+import Manager from './Page/Admin/Manager'
+import DefaultLayout from './layout/DefaultLayout';
+import HomeLayout from './layout/HomeLayout';
+
+import Home from './Page/User/Home';
+import HostPage from './Page/User/HostPage'
 import './App.css';
 // sagas
 import createSagaMiddleware from 'redux-saga';
 import mySaga from './Redux/Sagas'
-import ProductDetail from './Component/ProductDetail';
 import DetailAdmin from './Component/DetailAdmin';
+import HostDefaultLayout from './layout/HostDefaultLayout';
 const sagaMiddleware = createSagaMiddleware()
 const myStore = createStore(myReducer,
   applyMiddleware(...[sagaMiddleware,logger]));
@@ -39,17 +44,21 @@ ReactDOM.render(
     <Provider store={myStore}>
       <Router history={history}>
         <Switch>
-          <DefautHome exact path="/" component={Home} />
           <LoginPage exact path="/admin/login" component={AdminLogin} />
+          <LoginPage exact path='/login' component={Login} />
+
+          <HomeLayout exact path="/" component={Home} />
+          <DefaultLayout exact path="/apartments" component={ApartmentListPage} />
+          <DefaultLayout exact path="/apartment/:id" component={ApartmentDetailPage} />
+
           <AdminDefaultLayout exact path="/admin/apartments" component={AdminProductList} />
           <AdminDefaultLayout exact path="/admin/apartment/:id" component={DetailAdmin} />
-          <LoginPage exact path='/login' component={Login} />
-          <ListPage exact path="/apartments" component={Main} />
-          <ListPage exact path="/apartment/:id" component={ProductDetail} />
+          <AdminDefaultLayout exact path="/admin/manager" component={Manager}/>
 
+
+          <HostDefaultLayout exact path="/host" component={HostPage}/>
         </Switch>
       </Router>
-
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

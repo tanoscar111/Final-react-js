@@ -1,0 +1,89 @@
+
+.nav-container {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  height: 72px;
+  width: 100%;
+  background-color: white;
+  box-shadow: 3px 6px 10px rgba(0, 0, 0, 0.1);
+  z-index: 98;
+}
+
+.nav-path-container {
+  display: flex;
+  align-items: center;
+}
+
+.nav-path-item {
+  padding: 0 16px;
+  border-right: 1px solid gray;
+  font-size: 16px;
+  cursor: pointer;
+  animation: 0.3s all;
+}
+
+.nav-path-item:hover {
+  transform: translateY(-2px);
+}
+
+.nav-path-item:last-child {
+  border-right: none;
+}
+
+.sidebar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  padding-left: 48px;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85);
+  transition: 0.3s;
+  transform: translate(-100%, 0);
+  z-index: 99;
+}
+
+.sidebar-container.active {
+  transform: translate(0, 0);
+}
+
+.sidebar-menu {
+  position: relative;
+}
+
+.sidebar-item {
+  position: relative;
+  margin-bottom: 16px;
+  color: white;
+  font-size: 20px;
+  line-height: 28px;
+  cursor: pointer;
+}
+
+.sidebar-item::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: gray;
+  transition: 0.3s;
+}
+
+.sidebar-item:hover::after {
+  content: "";
+  width: 60px;
+}
+
+.close-sidebar-icon {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}

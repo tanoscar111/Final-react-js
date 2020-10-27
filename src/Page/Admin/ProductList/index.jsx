@@ -12,7 +12,7 @@ function ProductList(props) {
     useEffect(() => {
         getListProduct({
             page: currentPage,// khởi đầu page là 1
-            limit: 4,
+            limit: 6,
         });
 
 
@@ -23,7 +23,7 @@ function ProductList(props) {
           
             page: currentPage + 1,
             // load tiếp page +thêm 1
-            limit: 4, //load thêm 4 phần tử
+            limit: 6, //load thêm 4 phần tử
         });
         setCurrentPage(currentPage + 1);// lưu lại
     }

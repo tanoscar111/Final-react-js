@@ -3,34 +3,27 @@ import { connect } from 'react-redux';
 import { Space, Button } from 'antd';
 import { MenuOutlined, CloseOutlined } from '@ant-design/icons';
 
-import logo from '../../image/logo.jpg'
+import logo from '../../../image/logo.jpg'
 import { Redirect } from "react-router-dom";
 import { Dropdown } from 'react-bootstrap';
-import history from '../../history';
+import history from '../../../history';
 
-import { logoutUser } from '../../Redux/Actions'
-import './styles.css'
+import { logoutUser } from '../../../Redux/Actions'
+import './headerAdmin.css'
 
-function Nav(props) {
+function HeaderAdmin(props) {
   const [isShowSidebar, setIsShowSidebar] = useState(false);
 
   const NAV_ITEMS = [
-    {
-      name: 'Trang chủ',
-      path: '/'
-    },
+    ,
     {
       name: 'Thuê Phòng trọ',
-      path: '/apartments'
+      path: '/admin/apartments'
     },
     {
-      name: 'Chủ nhà',
-      path: '/host'
+      name: 'Quản lí  phòng',
+      path: '/admin/manager'
     },
-    {
-      name: 'Đăng nhập',
-      path: '/login',
-    }
   ]
 
   const authData = JSON.parse(localStorage.getItem("myValueInLocalStorage"));
@@ -68,7 +61,7 @@ function Nav(props) {
   function logoutUsers() {
     localStorage.removeItem("myValueInLocalStorage");
     return (
-     history.push({pathname:'/login'})
+      <Redirect to="/" />
     )
   }
   return (
@@ -91,20 +84,20 @@ function Nav(props) {
             {renderNavPath()}
           </div>
         </Space>
-        <div className="d-flex">
+        <div>
           <Dropdown>
             {authData && <Dropdown.Toggle className="nameUser">
               {authData.userName}
             </Dropdown.Toggle>}
             <Dropdown.Menu>
-              <Dropdown.Item onClick={() => logoutUsers()}  className="userName">đăng xuất</Dropdown.Item>
+              <Dropdown.Item onClick={() => logoutUsers()} >đăng xuất</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
           <Button
             type="text"
             icon={<MenuOutlined style={{ fontSize: 24 }} />}
             onClick={() => setIsShowSidebar(true)}
-          />            
+          />
         </div>
       </div>
     </>
@@ -125,4 +118,4 @@ const mapDispatchToProps = (dispatch) => {
 
   }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Nav);
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderAdmin);
