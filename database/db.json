@@ -6,11 +6,11 @@
       "name": "Phòng 1",
       "thongtin": "abcxyz",
       "gia": 1000000,
-      "giakhuyenmai": 500000,
+      "giakhuyenmai": 60000,
       "tiendien": 500000123123,
       "tiennuoc": 123123123123123,
       "tienmang": 500000,
-      "tienvesinh": 500000,
+      "tienvesinh": 5000000,
       "imgDetail": "https://cdn.nhatrotot.com/images/000022565/133-26u-ngo-duc-ke-phuong-12-quan-binh-thanh-thanh-pho-ho-chi-minh-000022565001.jpg",
       "images": [
         "https://cdn.nhatrotot.com/images/000022565/133-26u-ngo-duc-ke-phuong-12-quan-binh-thanh-thanh-pho-ho-chi-minh-000022565001.jpg",
@@ -232,6 +232,12 @@
       "passWord": "123",
       "role": "user",
       "id": 2
+    },
+    {
+      "userName": "tan12345",
+      "passWord": "123",
+      "role": "user",
+      "id": 3
     }
   ],
   "detailProductListData": [

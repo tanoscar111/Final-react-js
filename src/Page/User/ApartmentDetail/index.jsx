@@ -7,7 +7,7 @@ import { HiOutlineCurrencyDollar } from "react-icons/hi";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import Rating from "react-rating";
 
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik, Field, Form } from 'formik';
 import ModalBookRoom from '../../../Component/ModalBookRoom';
 import * as Yup from 'yup';
 import { FcAddressBook } from 'react-icons/fc';

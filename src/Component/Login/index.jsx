@@ -33,6 +33,7 @@ function Login(props) {
         createUser({
             userName: values.userName,
             passWord: values.passWord,
+            role: 'user',
 
         })
     }

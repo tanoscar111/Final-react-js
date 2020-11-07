@@ -61,7 +61,7 @@ function HeaderAdmin(props) {
   function logoutUsers() {
     localStorage.removeItem("myValueInLocalStorage");
     return (
-      <Redirect to="/" />
+      history.push({pathname:'/login'})
     )
   }
   return (
@@ -84,7 +84,7 @@ function HeaderAdmin(props) {
             {renderNavPath()}
           </div>
         </Space>
-        <div>
+        <div className="d-flex">
           <Dropdown>
             {authData && <Dropdown.Toggle className="nameUser">
               {authData.userName}
